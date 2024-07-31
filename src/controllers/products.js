@@ -3,7 +3,6 @@ import Product from "../models/ProductModel.js";
 import ApiError from "../utils/ApiError.js";
 
 class ProductsController {
-  // GET /products
   async getAllProducts(req, res, next) {
     try {
       const products = await Product.find().populate("category");
@@ -12,7 +11,6 @@ class ProductsController {
       next(error);
     }
   }
-  // GET /products/:id
   async getProductDetail(req, res, next) {
     try {
       const product = await Product.findById(req.params.id);
@@ -23,7 +21,6 @@ class ProductsController {
       next(error);
     }
   }
-  // POST /products
   async createProduct(req, res, next) {
     try {
       const newProduct = await Product.create(req.body);
@@ -35,7 +32,6 @@ class ProductsController {
       next(error);
     }
   }
-  // PUT /products/:id
   async updateProduct(req, res, next) {
     try {
       const updateProduct = await Product.findByIdAndUpdate(
@@ -53,7 +49,6 @@ class ProductsController {
       next(error);
     }
   }
-  // DELETE /products/:id
   async deleteProduct(req, res, next) {
     try {
       const product = await Product.findByIdAndDelete(req.params.id);

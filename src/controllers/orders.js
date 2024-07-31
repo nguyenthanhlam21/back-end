@@ -4,7 +4,6 @@ import ApiError from "../utils/ApiError.js";
 import Cart from "../models/CartModel.js";
 
 class OrdersController {
-  // GET /orders
   async getAllOrders(req, res, next) {
     try {
       const orders = await Order.find();
@@ -13,7 +12,6 @@ class OrdersController {
       next(error);
     }
   }
-  // GET /orders/:id
   async getOrderDetail(req, res, next) {
     try {
       const order = await Order.findById(req.params.id);
@@ -24,7 +22,6 @@ class OrdersController {
       next(error);
     }
   }
-  // POST /orders
   async createOrder(req, res, next) {
     try {
       const newOrder = await Order.create(req.body);
@@ -38,7 +35,6 @@ class OrdersController {
       next(error);
     }
   }
-  // PUT /orders/:id
   async updateOrder(req, res, next) {
     try {
       const updateOrder = await Order.findByIdAndUpdate(
@@ -56,7 +52,6 @@ class OrdersController {
       next(error);
     }
   }
-  // DELETE /orders/:id
   async deleteOrder(req, res, next) {
     try {
       const order = await Order.findByIdAndDelete(req.params.id);

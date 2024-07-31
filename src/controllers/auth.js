@@ -24,7 +24,6 @@ class AuthController {
         username,
         password: hashPassword,
       });
-      // b4 remove password in res
       res.status(StatusCodes.OK).json({
         message: "Create Done",
         data: { ...user.toObject(), password: undefined },

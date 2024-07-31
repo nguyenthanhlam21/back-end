@@ -4,7 +4,7 @@ import ApiError from "../utils/ApiError.js";
 import Product from "../models/ProductModel.js";
 
 class CartsController {
-  // GET /carts
+  
   async getAllCarts(req, res, next) {
     try {
       const carts = await Cart.find().populate({
@@ -19,7 +19,7 @@ class CartsController {
       next(error);
     }
   }
-  // GET /carts/:id
+  
   async getCartDetail(req, res, next) {
     try {
       const cart = await Cart.findById(req.params.id);
@@ -30,7 +30,7 @@ class CartsController {
       next(error);
     }
   }
-  // GET /carts/:id
+  
   async getCartUser(req, res, next) {
     try {
       const cart = await Cart.findOne({ user: req.params.id }).populate({
@@ -46,7 +46,7 @@ class CartsController {
       next(error);
     }
   }
-  // POST /carts
+  
   async createCart(req, res, next) {
     try {
       const { quantity, user, product } = req.body;
@@ -70,7 +70,6 @@ class CartsController {
       next(error);
     }
   }
-  // POST /carts
   async updateProductCart(req, res, next) {
     try {
       const { id } = req.params;
@@ -146,7 +145,6 @@ class CartsController {
       next(error);
     }
   }
-  // DELETE /carts/:id
   async deleteCart(req, res, next) {
     try {
       const cart = await Cart.findByIdAndDelete(req.params.id);
